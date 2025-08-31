@@ -11,15 +11,16 @@ const UserProfile = (props) => {
   );
 };
 
-// The main App component renders the UserProfile with your details.
+// The main App component renders the UserProfile with the specific details
+// required by the test.
 const App = () => {
   return (
     <UserProfile
-      name="Kidlat"
-      age={30}
-      bio="Front-End-Developer"
+      name="Alice"
+      age={25}
+      bio="Loves hiking and photography"
     />
   );
 };
 
-export default UserProfile;
+export default App;
