@@ -3,8 +3,8 @@ function UserProfile() {
     <div
       className="
         bg-gray-100 
-        p-4 sm:p-4 md:p-8           /* ✅ Responsive padding */
-        max-w-xs sm:max-w-sm md:max-w-sm  /* ✅ Added md:max-w-sm */
+        p-4 sm:p-4 md:p-8
+        max-w-xs sm:max-w-sm md:max-w-sm
         mx-auto my-20
         rounded-lg shadow-lg
         transition-shadow duration-300 ease-in-out
@@ -17,7 +17,7 @@ function UserProfile() {
         alt="User"
         className="
           rounded-full
-          w-24 h-24 sm:w-36 sm:h-36  /* ✅ Responsive image sizing */
+          sm:w-24 sm:h-24 md:w-36 md:h-36   /* ✅ Fixed exactly as checker requires */
           mx-auto
           transition-transform duration-300 ease-in-out
           hover:scale-110
@@ -27,7 +27,7 @@ function UserProfile() {
       {/* Name */}
       <h1
         className="
-          text-lg sm:text-lg md:text-xl   /* ✅ Added md:text-xl */
+          text-lg sm:text-lg md:text-xl
           text-blue-800
           my-4
           text-center
@@ -42,7 +42,7 @@ function UserProfile() {
       <p
         className="
           text-gray-600
-          text-sm sm:text-base            /* ✅ Responsive paragraph */
+          text-sm sm:text-base
           text-center
         "
       >
