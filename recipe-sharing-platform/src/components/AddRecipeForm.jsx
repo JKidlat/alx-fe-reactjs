@@ -3,7 +3,8 @@ import { useState } from "react";
 function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [instructions, setInstructions] = useState(""); // keep instructions
+  const [steps, setSteps] = useState(""); // also add steps
   const [errors, setErrors] = useState({});
 
   // Validation function
@@ -17,6 +18,7 @@ function AddRecipeForm() {
       newErrors.ingredients = "Please include at least two ingredients";
     }
     if (!instructions) newErrors.instructions = "Instructions are required";
+    if (!steps) newErrors.steps = "Steps are required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -32,6 +34,7 @@ function AddRecipeForm() {
       title,
       ingredients: ingredients.split(","),
       instructions,
+      steps,
     };
 
     console.log("Recipe submitted:", newRecipe);
@@ -40,6 +43,7 @@ function AddRecipeForm() {
     setTitle("");
     setIngredients("");
     setInstructions("");
+    setSteps("");
     setErrors({});
     alert("Recipe submitted successfully!");
   };
@@ -75,14 +79,26 @@ function AddRecipeForm() {
 
         {/* Instructions */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Preparation Instructions</label>
+          <label className="block text-gray-700 font-medium mb-2">Instructions</label>
           <textarea
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-            rows="5"
+            rows="4"
           ></textarea>
           {errors.instructions && <p className="text-red-500">{errors.instructions}</p>}
+        </div>
+
+        {/* Steps */}
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">Steps</label>
+          <textarea
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+            rows="4"
+          ></textarea>
+          {errors.steps && <p className="text-red-500">{errors.steps}</p>}
         </div>
 
         <button
